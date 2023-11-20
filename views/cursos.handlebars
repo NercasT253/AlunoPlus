@@ -1,0 +1,64 @@
+<header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logoBranco.png" alt="Logo AlunoPlus" width="50%">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cursos">Cursos</a>
+                    </li>
+                    {{#if user}}
+                    {{#ifCond user.tipo '===' 'Adm'}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/adm">ADM</a>
+                    </li>
+                    {{/ifCond}}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Minha Conta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/minhaConta">Dados</a></li>
+                            <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cadastrar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/cadastrarAluno">Aluno</a></li>
+                            <li><a class="dropdown-item" href="/cadastrarProfessor">Professor</a></li>
+                        </ul>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-fluid">
+    <div class="row justify-content-between">
+        {{#each cursos}}
+        <div class="col-md-5 col-12 mb-3 rounded shadow d-flex flex-column justify-content-center">
+            <img src="/images/{{destinoImagem}}" width="50%" alt="Imagem Curso">
+            <h3>{{tituloCurso}}</h3>
+            <p>{{descricaoCurso}}</p>
+        </div>
+        {{/each}}
+    </div>
+</main>

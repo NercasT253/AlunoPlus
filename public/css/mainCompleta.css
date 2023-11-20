@@ -1,0 +1,4 @@
+.mainCompleta{ /* Faz o container da main ocupar a página toda */
+    min-height: 87vh;
+    padding-bottom: 20vh;
+}

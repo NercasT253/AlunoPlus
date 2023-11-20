@@ -1,0 +1,49 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logoBranco.png" alt="Logo AlunoPlus" width="50%">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cursos">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/adm">ADM</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Minha Conta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/minhaConta">Dados</a></li>
+                            <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-fluid">
+    <div>
+        <p>Nome: {{user.nome}}
+    </div>
+    <div>
+        <p>Email: {{user.email}}
+    </div>
+    <div>
+        <p>Data de Nascimento: {{user.dataNascimento}}
+    </div>
+    <br>
+</main>

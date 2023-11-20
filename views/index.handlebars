@@ -1,0 +1,103 @@
+<header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logoBranco.png" alt="Logo AlunoPlus" width="50%">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cursos">Cursos</a>
+                    </li>
+                    {{#if user}}
+                    {{#ifCond user.tipo '===' 'Adm'}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/adm">ADM</a>
+                    </li>
+                    {{/ifCond}}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Minha Conta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/minhaConta">Dados</a></li>
+                            <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cadastrar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/cadastrarAluno">Aluno</a></li>
+                            <li><a class="dropdown-item" href="/cadastrarProfessor">Professor</a></li>
+                        </ul>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-fluid">
+    <div class="row justify-content-center mainCompleta" style="padding-top: 1vh">
+        <div class="col-sm-10 col-11 mb-3 rounded shadow">
+            <h1 class="text-center">Seja bem vindo ao AlunoPlus!</h1>
+            <p>Venha descobrir e aprender matérias da sua escolha com os mais diversos cursos presentes! Tudo isso
+                verificado e apresentado por profissionais altamente qualificados!</p>
+        </div>
+
+        <div class="col-sm-10 col-11 mb-3 rounded shadow">
+            <h2 class="text-center">Conheça alguns dos cursos disponíveis</h2>
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    {{#each cursos}}
+                    <div class="col-md-5 col-12 mb-3 rounded shadow d-flex flex-column justify-content-center">
+                        <img src="/images/{{destinoImagem}}" width="50%" alt="Imagem Curso">
+                        <h3>{{tituloCurso}}</h3>
+                        <p>{{descricaoCurso}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-10 col-11 mb-3">
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    <div class="col-md-5 col-12 mb-3 rounded shadow d-flex flex-column justify-content-center">
+                        <a href="/cadastrarAluno">
+                            <img src="/images/fotoAluno.png" alt="Foto Aluno" class="img-fluid">
+                        </a>
+                        <h2 class="text-center">Venha ser um Aluno Plus</h2>
+                        <p class="text-center">Aqui temos diversos cursos das mais variadas áreas para você se
+                            profissionalizar. Junte-se a nós e
+                            se torne um Aluno Plus.</p>
+                    </div>
+                    <div class="col-md-5 col-12 mb-3 rounded shadow d-flex flex-column justify-content-center">
+                        <a href="/cadastrarProfessor">
+                            <img src="/images/fotoProfessor.png" alt="Foto Professor" class="img-fluid">
+                        </a>
+                        <h2 class="text-center">Venha ser um Professor Plus</h2>
+                        <p class="text-center">Você tem interesse em compartilhar o seu conhecimento para ajudar a
+                            levar uma educação
+                            de qualidade para todos que precisarem sem custo? Junte-se a nós e se torne um Professor
+                            Plus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

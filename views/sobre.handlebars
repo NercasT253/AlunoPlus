@@ -1,0 +1,79 @@
+<header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logoBranco.png" alt="Logo AlunoPlus" width="50%">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cursos">Cursos</a>
+                    </li>
+                    {{#if user}}
+                    {{#ifCond user.tipo '===' 'Adm'}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/adm">ADM</a>
+                    </li>
+                    {{/ifCond}}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Minha Conta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/minhaConta">Dados</a></li>
+                            <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cadastrar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/cadastrarAluno">Aluno</a></li>
+                            <li><a class="dropdown-item" href="/cadastrarProfessor">Professor</a></li>
+                        </ul>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-fluid">
+    <div>
+        <h1>Quem Somos</h1>
+        <p>
+            Somos um grupo de dois alunos desenvolvendo um trabalho da matéria <strong>Programação para
+                Internet</strong>
+            da <strong>Universidade Federal de Uberlândia</strong> do curso de <strong>Sistemas de Informação</strong>.
+            Temos como objetivo aprimorar nosso conhecimento na sites e de programação no geral. Para tanto, criamos
+            esse
+            site para explorar nossos limites e nos ajudar a entender como realmente funciona a criação de aplicações
+            web
+            na prática.
+        </p>
+        <p>
+            Esse site foi pensado de forma a estar relacionado com algum dos <a href="https://brasil.un.org/pt-br/sdgs"
+                target="_blank">
+                17 Objetivos de Desenvolvimento Sustentável</a> (ODS) da <strong>ONU</strong>, que no caso foi
+            <strong>Educação de Qualidade</strong>.
+            O objetivo do site é ser uma plataforma onde pessoas qualificadas e que tenham interesse em compartilhar seu
+            conhecimento de forma gratuita,
+            possam postar cursos sobre qualquer assunto para que qualquer pessoa que tenha se cadastrado no site possa
+            ter acesso. Os professores
+            (pessoas que postam os cursos) passam por uma validação para poderem disponibilizar o curso.
+        </p>
+    </div>
+</main>
